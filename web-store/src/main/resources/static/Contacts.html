@@ -8,11 +8,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-    <script>
-        $(function() {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
-        });
+    <script src="function.js">
     </script>
 
     <script>
@@ -22,36 +18,39 @@
     </script>
 </head>
 
-<body class="contacts_body">
-    <div id="header"></div>
-    <div class="contacts_content">
-        <div class="page_name_contacts">Наши контакты</div>
-        <table class="table">
-            <tr>
-                <th></th>
-                <th>Офис</th>
-                <th>Склад</th>
-            </tr>
-            <tr>
-                <th>Адрес</th>
-                <td>г.Нбург, ул.Прямая, стр.8, каб.100</td>
-                <td>г.Нбург, ул.Косая, стр.1</td>
-            </tr>
-            <tr>
-                <th>Телефоны</th>
-                <td>+375291234567
-                    <p>
-                        11-22-33
-                    </p>
-                </td>
-                <td>+375291234567
-                    <p>
-                        11-22-33
-                    </p>
-                </td>
-            </tr>
-        </table>
-        <button class="back_button" onclick="GoBack()">Вернуться назад</button>
+<body>
+    <div class="contacts_wrapper">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div class="contacts_content">
+            <div class="page_name_contacts">Наши контакты</div>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Офис</th>
+                    <th>Склад</th>
+                </tr>
+                <tr>
+                    <th>Адрес</th>
+                    <td>г.Нбург, ул.Прямая, стр.8, каб.100</td>
+                    <td>г.Нбург, ул.Косая, стр.1</td>
+                </tr>
+                <tr>
+                    <th>Телефоны</th>
+                    <td>+375291234567
+                        <p>
+                            11-22-33
+                        </p>
+                    </td>
+                    <td>+375291234567
+                        <p>
+                            11-22-33
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <a class="back_button" href="javascript:history.back();">Назад</a>
+        <div id="footer"></div>
     </div>
-    <div id="footer"></div>
 </body>

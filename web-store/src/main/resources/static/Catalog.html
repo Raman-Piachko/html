@@ -4,172 +4,127 @@
     <meta charset="utf-8">
     <title>Каталог продукции</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
-    <script>
-        $(function() {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
-
-    <script>
-        let GoBack = function() {
-            window.history.back();
-        };
+    <script src="function.js">
     </script>
 </head>
 
-<body class="catalog_body">
-    <div id="header"></div>
-    <div class="content">
+<body>
+    <div class="catalog_wrapper">
+        <div id="header"></div>
         <div class="page_name_catalog">Каталог продукции</div>
-
-        <div class="faq_list">
-            <div class="faq_item">
-                <div class="faq_item_title">
-                    <div class="faq_item_title_inner">
-                        Полуавтоматы
+        <div id="nav"></div>
+        <div class="catalog_content">
+            <div class="item_list">
+                <div class="item">
+                    <div class="group_name">Полуавтоматы</div>
+                    <div class="card">
+                        <div class="image"><img src="images/mig160.jpg"></div>
+                        <div class="description"><span class="item_name">MIG-160</span>Ручная дуговая сварка (MMA)/полуавтоматическая сварка (MIG MAG), 220 В, сварочный ток: 10–160 А, диаметр электрода: 0.6–1 мм, 13.5 кг</div>
+                        <div class="bascket_area">
+                            <span class="price">1030 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="image"><img src="images/mig250.jpg"></div>
+                        <div class="description"><span class="item_name">MIG-250</span>Ручная дуговая сварка (MMA)/полуавтоматическая сварка (MIG MAG), 220 В, сварочный ток: 25–250 А, 24 кг</div>
+                        <div class="bascket_area">
+                            <span class="price">1600 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
                     </div>
                 </div>
-                <details>
-                    <div class="faq_item_body">
-                        <div class="product-item">
-                            <a class="image" href="mig-160a.html">
-                                <img src="images/mig160.jpg">
-                            </a>
-                            <div class="product-list">
-                                <h3>MIG-160</h3>
-                                <span class="price">860 BYN</span>
-                                <a class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <img src="images/mig250.jpg">
-                            <div class="product-list">
-                                <h3>MIG-250</h3>
-                                <span class="price">1030 BYN</span>
-                                <a class="bascket_button">В корзину</a>
-                            </div>
+
+                <div class="item">
+                    <div class="group_name">TIG-сварка</div>
+                    <div class="card">
+                        <div class="image"><img src="images/tig250.jpg"></div>
+                        <div class="description"><span class="item_name">TIG-250</span>Инвертор, ручная дуговая сварка (MMA), сварочный ток (MMA): 250 А, аргонодуговая сварка (TIG), сварочный ток (TIG): 250 А, ток сварки: постоянный и переменный, КПД: 85 %, диаметр электрода:
+                            1.6 - 5, форсирование дуги, степень защиты: IP23, класс изоляции: B</div>
+                        <div class="bascket_area">
+                            <span class="price">2330 BYN</span>
+                            <button class="bascket_button">В корзину</button>
                         </div>
                     </div>
-                </details>
-            </div>
-
-            <div class="faq_item">
-                <div class="faq_item_title">
-                    <div class="faq_item_title_inner">
-                        TIG-сварка
+                    <div class="card">
+                        <div class="image"><img src="images/tig300.jpg"></div>
+                        <div class="description"><span class="item_name">TIG-300</span>Инвертор, ручная дуговая сварка (MMA), сварочный ток (MMA): 210 А, аргонодуговая сварка (TIG), сварочный ток (TIG): 250 А, ток сварки: постоянный, КПД: 85 %, форсирование дуги, степень защиты:
+                            IP21, класс изоляции: F</div>
+                        <div class="bascket_area">
+                            <span class="price">1150 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
                     </div>
                 </div>
-                <details>
-                    <div class="faq_item_body">
-                        <div class="product-item">
-                            <img src="images/tig250.jpg">
-                            <div class="product-list">
-                                <h3>TIG-250</h3>
-                                <span class="price">1400 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <img src="images/tig300.jpg">
-                            <div class="product-list">
-                                <h3>TIG-300</h3>
-                                <span class="price">1700 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-            </div>
 
-            <div class="faq_item">
-                <div class="faq_item_title">
-                    <div class="faq_item_title_inner">
-                        Аппараты РДС
+                <div class="item">
+                    <div class="group_name">Аппараты РДС</div>
+                    <div class="card">
+                        <div class="image"><img src="images/ARC200.jpg"></div>
+                        <div class="description"><span class="item_name">ARC200</span>ручная дуговая сварка (MMA)/аргонодуговая сварка (TIG), 220 В, сварочный ток: 10–190 А, диаметр электрода: 1.6–4 мм, 5.8 кг</div>
+                        <div class="bascket_area">
+                            <span class="price">650 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
                     </div>
                 </div>
-                <details>
-                    <div class="faq_item_body">
-                        <div class="product-item">
-                            <img src="images/ARC200.jpg">
-                            <div class="product-list">
-                                <h3>ARC-200</h3>
-                                <span class="price">600 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-            </div>
 
-            <div class="faq_item">
-                <div class="faq_item_title">
-                    <div class="faq_item_title_inner">
-                        Плазмарезы
+                <div class="item">
+                    <div class="group_name">Плазмарезы</div>
+                    <div class="card">
+                        <div class="image"><img src="images/CUT100.jpg"></div>
+                        <div class="description"><span class="item_name">CUT100</span>Инвертор для воздушной плазменной резки Jasic CUT-100 (L201) применяется для прямой и фигурной резки сталей, меди, алюминия, чугуна и других конструкционных материалов. Основа конструкции –
+                            IGBT-транзисторы, применение которых делает аппарат надежным в работе и компактным. Минимальный уровень шума при работе. Аппарат собран в прочном корпусе из металла. На верхней крышке две прочные ручки для транспортировки.
+                            Для генерации плазмы CUT-100 использует воздух, который перед подачей проходит через специальный блок подготовки. От повреждений блок прикрывает пластина защитного козырька с окошком для манометра. Встроенная функция « пилотной
+                            дуги» для комфортной работы с загрязненным материалом (ржавчина и т.д.).</div>
+                        <div class="bascket_area">
+                            <span class="price">2240 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
                     </div>
                 </div>
-                <details>
-                    <div class="faq_item_body">
-                        <div class="product-item">
-                            <img src="images/CUT100.jpg">
-                            <div class="product-list">
-                                <h3>CUT-100</h3>
-                                <span class="price">700 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
+
+                <div class="item">
+                    <div class="group_name">Расходные материалы, оборудование, защита</div>
+                    <div class="card">
+                        <div class="image"><img src="images/electrode.jpg"></div>
+                        <div class="description">Электроды УОНИ, МР-3</div>
+                        <div class="bascket_area">
+                            <span class="price">5 BYN</span>
+                            <button class="bascket_button">В корзину</button>
                         </div>
                     </div>
-                </details>
-            </div>
-
-            <div class="faq_item">
-                <div class="faq_item_title">
-                    <div class="faq_item_title_inner">
-                        Расходные материалы, оборудование, защита
+                    <div class="card">
+                        <div class="image"><img src="images/holder.jpg"></div>
+                        <div class="description"><span class="">Держатель электрода</span></div>
+                        <div class="bascket_area">
+                            <span class="price">25 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="image"><img src="images/mask.jpg"></div>
+                        <div class="description">Маска сварщика</div>
+                        <div class="bascket_area">
+                            <span class="price">90 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="image"><img src="images/wire.jpg"></div>
+                        <div class="description">Проволока сварочная</div>
+                        <div class="bascket_area">
+                            <span class="price">35 BYN</span>
+                            <button class="bascket_button">В корзину</button>
+                        </div>
                     </div>
                 </div>
-                <details>
-                    <div class="faq_item_body">
-                        <div class="product-item">
-                            <img src="images/electrode.jpg">
-                            <div class="product-list">
-                                <h3>Электроды</h3>
-                                <span class="price">5 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <img src="images/holder.jpg">
-                            <div class="product-list">
-                                <h3>Держатель</h3>
-                                <span class="price">12 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <img src="images/mask.jpg">
-                            <div class="product-list">
-                                <h3>Маска сварщика</h3>
-                                <span class="price">90 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <img src="images/wire.jpg">
-                            <div class="product-list">
-                                <h3>Проволока сварочная</h3>
-                                <span class="price">35 BYN</span>
-                                <a href="" class="bascket_button">В корзину</a>
-                            </div>
-                        </div>
-                    </div>
-                </details>
             </div>
         </div>
-        <button onclick="GoBack()">Вернуться назад</button>
+        <a class="back_button" href="javascript:history.back();">Назад</a>
+        <div id="footer"></div>
     </div>
-
-    <div id="footer"></div>
 </body>

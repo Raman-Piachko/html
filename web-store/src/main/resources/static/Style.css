@@ -1,31 +1,55 @@
-header {
-    text-align: center;
-    color: rgb(247, 241, 241);
+* {
+    box-sizing: border-box;
 }
 
-.main_body {
+body,
+html {
     height: 100%;
+    margin: 0;
+}
+
+header {
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(247, 241, 241);
+    padding-top: 10px;
+    text-shadow: 5px 5px 10px black;
+}
+
+nav {
+    height: 100%;
+    width: 25%;
+    float: left;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+a {
+    color: white;
+}
+
+.main_wrapper {
     background-image: url(images/1-1.png);
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.main_menu {
-    display: inline-flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-left: 20px;
+.content {
+    height: 100vh;
+    width: 75%;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    text-shadow: 5px 5px 10px black;
 }
 
-.contacts_body {
-    height: 100%;
+.contacts_wrapper {
     background-image: url(images/welding.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.contacts_content {
-    height: 100%;
 }
 
 .page_name_contacts {
@@ -35,10 +59,18 @@ header {
     color: #f7f7f8;
 }
 
+.contacts_content {
+    height: 100vh;
+    width: 75%;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 100%;
+    text-shadow: 5px 5px 10px black;
+}
+
 table {
     width: auto;
-    margin: auto;
-    border-spacing: 1px;
     font-size: 130%;
 }
 
@@ -51,9 +83,31 @@ th {
     padding: 3px;
 }
 
-.form_body {
+.form_wrapper {
     background-image: url(images/welding.jpg);
-    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page_name_form {
+    text-align: left;
+    font-size: 150%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #f7f7f8;
+}
+
+.form_content {
+    height: 100vh;
+    width: 100%;
+    float: left;
+    color: white;
+    font-size: 100%;
+    text-shadow: 5px 5px 10px black;
+}
+
+.form {
+    color: ivory;
 }
 
 .back_button {
@@ -62,31 +116,27 @@ th {
     bottom: auto;
 }
 
-.page_name_send {
-    text-align: left;
-    font-size: 150%;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    color: #f7f7f8;
-}
-
-.form {
-    color: ivory;
+.send_wrapper {
+    background-image: url(images/call.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .send_content {
+    height: 100vh;
+    width: 100%;
     text-align: center;
-    font-size: 150%;
-    line-height: 1.25%;
-    color: black;
+    color: white;
+    font-size: 100%;
+    text-shadow: 5px 5px 10px black;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-.catalog_body {
+.catalog_wrapper {
     background-image: url(images/tig_welding.jpg);
-    background-size: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-y;
 }
 
 .page_name_catalog {
@@ -96,90 +146,76 @@ th {
     color: #f7f7f8;
 }
 
-.product-item {
-    width: 300px;
-    text-align: center;
-    margin: 0 auto;
-    border-bottom: 2px solid #F5F5F5;
-    background: rgb(252, 249, 249);
-    font-family: "Open Sans";
-    transition: .3s ease-in;
+.item_list {
+    display: flex;
+    flex-direction: column;
 }
 
-.product-item:hover {
-    border-bottom: 2px solid #fc5a5a;
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
 }
 
-a .product-item img {
-    display: block;
-    width: 100%;
+.card a {
+    left: 0;
 }
 
-.product-list h3 {
-    font-size: 18px;
-    font-weight: 400;
-    color: #f8f6f6;
-    margin: 0 0 10px 0;
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.price {
-    font-size: 16px;
-    color: black;
-    display: block;
-    margin-bottom: 12px;
-}
-
-a {
+.description {
+    margin-left: 10px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.faq_item_title_inner {
+.group_name {
     text-align: center;
+    color: white;
+    font-size: 36px;
 }
 
-.faq_list {
-    display: block;
-    clear: both;
-    font-size: 20px;
-    line-height: 25px;
-    color: #fcf9f9;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 5px 9px 10px;
-    height: 1%;
+.item_name {
+    color: silver;
+    font-size: 28px;
 }
 
-details {
-    text-align: center;
-    font-size: 70%;
-}
-
-.product-item:hover .button {
-    background: #fc5a5a;
+.bascket_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .bascket_button {
-    text-decoration: none;
-    display: inline-block;
     padding: 0 12px;
-    background: #cccccc;
-    color: white;
+    background: white;
+    color: black;
     text-transform: uppercase;
     font-size: 12px;
-    line-height: 28px;
     transition: .3s ease-in;
 }
 
-.footer_send {
-    position: fixed;
-    color: black;
+.back_button {
+    margin-right: 10px;
+    float: right;
     bottom: 0;
-    width: 100%;
 }
 
 footer {
-    position: fixed;
-    color: rgb(248, 245, 245);
+    left: 0;
     bottom: 0;
     width: 100%;
+    height: 40px;
+    clear: both;
+    text-align: center;
+    color: rgb(248, 245, 245);
+    text-shadow: 5px 5px 10px black;
 }
