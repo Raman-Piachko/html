@@ -9,23 +9,71 @@
     </script>
     <script src="function.js">
     </script>
+
 </head>
 
 <body>
     <div class="form_wrapper">
         <div id="header"></div>
-        <div class="form_content">
-            <div class="page_name_form">Обратная связь</div>
-            <div class="form">Ваше Имя:</div>
-            <input type="text" name="name" id="name" value="" />
-            <div class="form">Ваш E-mail <span>*</span>:</div>
-            <input type="text" name="email" id="email" value="" />
-            <div class="form">Сообщение <span>*</span>:</div>
-            <textarea name="message" id="message"></textarea>
-            <div class="result"></div>
-            <form action="Send.html"><button>Отправить</button></form>
+        <div class="container">
+            <div class="form_content">
+                <div class="page_name_form">Обратная связь</div>
+                <form class="formWithValidation">
+                    <div>
+                        <div>
+                            <label>Ваше Имя:<span>*</span>:</label>
+                        </div>
+                        <div>
+                            <input type='text' class='from field' />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Ваш E-mail:</label>
+                        </div>
+                        <div>
+                            <input type='text' class='email field' />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Ваш телефон +375<span>*</span>:</label>
+                        </div>
+                        <div>
+                            <input type='text' class='phone field' value="" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Тип запрашиваемой информации<span>*</span>:</label>
+                        </div>
+                        <div>
+                            <select class='where field'>
+                            <option></option>
+                            <option value='Сontacts'>Консультация по продукции</option>
+                            <option value='Price'>Вопросы рассрочки, доставки</option>
+                            <option value='Problems'>Проблемы или ошибки работы сайта</option>
+                            <option value='Problems'>Гаранитийное обслуживание и сервис</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Сообщение <span>*</span>:</label>
+                        </div>
+                        <div>
+                            <textarea class='message field'></textarea>
+                        </div>
+                    </div>
+                    <input type='submit' class='validateBtn' value='Отправить' />
+                </form>
+                <script src="validation.js"></script>
+            </div>
+
         </div>
-        <a class="back_button" href="javascript:history.back();">Назад</a>
+        <div class="back_button">
+            <a href="javascript: GoBack();">Назад</a>
+        </div>
         <div id="footer"></div>
     </div>
 </body>
