@@ -9,7 +9,7 @@ $('document').ready(function() {
 $(function() {
     $("#header").load("header.html");
     $("#footer").load("footer.html");
-    $("#nav").load("nav.html");
+    $("#navi").load("nav.html");
 });
 
 let GoBack = function() {
@@ -29,7 +29,7 @@ function loadMIG() {
                 out += '<div class="item_box">';
                 out += '<div class="image">' + '<img src="' + data.block[key].members[key1].image + '">' + '</div>';
                 out += '<div class="description">' + '<span class="item_title">' + data.block[key].members[key1]['name'] + '</span>' + data.block[key].members[key1]['description'] + '</div>';
-                out += '<div class="bascket_area">' + '<p>' + '<span class="item_price">' + data.block[key].members[key1]['cost'] + '</span> BYN</p>' + '<button class="add_item" data-art="' + data.block[key].members[key1]['id'] + '">В корзину</button>' + '</div>';
+                out += '<div class="bascket_area">' + '<p>' + '<span class="item_price">' + data.block[key].members[key1]['cost'] + '</span> BYN</p>' + '<button class="add_item" data-art="' + data.block[key].members[key1]['id'] + '" data-cost="' + data.block[key].members[key1]['cost'] + '">В корзину</button>' + '</div>';
                 out += '</div>';
             }
         }
@@ -47,7 +47,7 @@ function addToCart() {
         cart[articul] = 1;
     }
     localStorage.setItem('cart', JSON.stringify(cart));
-    //console.log(cart);
+
     showMiniCart();
 }
 
@@ -58,15 +58,14 @@ function chekCart() {
 }
 
 function showMiniCart() {
-    var out = '<div class="mini-cart"><div class="cart_name">Корзина</div>' + 'Товаров в корзине: ';
+    $.getJSON('mig.json', function(data) {
+        var out = '<div class="mini-cart"><p><a class="cart_name" href="cart.html">Корзина</a></p>' + 'Товаров в корзине: ';
+        var item_counter = 0;
+        for (var id in cart) {
+            item_counter += cart[id];
+        }
+        out += item_counter + '</div>';
 
-    var item_counter = 0;
-    var total_cost = 0;
-    for (var item in cart) {
-        item_counter += cart[item];
-    }
-    out += item_counter;
-    out += '<div class="total_cost">Общая сумма</div>' + total_cost + '</div>';
-
-    $('#mini-cart').html(out);
+        $('#mini-cart').html(out);
+    })
 }
