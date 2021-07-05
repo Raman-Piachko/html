@@ -29,7 +29,7 @@ function loadMIG() {
                 out += '<div class="item_box">';
                 out += '<div class="image">' + '<img src="' + data.block[key].members[key1].image + '">' + '</div>';
                 out += '<div class="description">' + '<span class="item_title">' + data.block[key].members[key1]['name'] + '</span>' + data.block[key].members[key1]['description'] + '</div>';
-                out += '<div class="bascket_area">' + '<p>' + '<span class="item_price">' + data.block[key].members[key1]['cost'] + '</span> BYN</p>' + '<button class="add_item" data-art="' + data.block[key].members[key1]['id'] + '" data-cost="' + data.block[key].members[key1]['cost'] + '">В корзину</button>' + '</div>';
+                out += '<div class="bascket_area">' + '<p>' + '<span class="item_price">' + data.block[key].members[key1]['cost'] + '</span> BYN</p>' + '<button class="add_item" data-art="' + data.block[key].members[key1]['id'] + '">В корзину</button>' + '</div>';
                 out += '</div>';
             }
         }

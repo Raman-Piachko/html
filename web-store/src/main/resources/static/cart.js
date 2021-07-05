@@ -5,7 +5,7 @@ $.getJSON('mig.json', function(data) {
     showCart();
 
     function showCart() {
-        var totalPrice = 0;
+
         var out = '';
         if ($.isEmptyObject(cart)) {
             out = '<h1 class="empty_cart"> На данный момент товаров в вашей корзине нет</h1>';
@@ -24,18 +24,17 @@ $.getJSON('mig.json', function(data) {
                             out += '<button class ="minus" data-atr="' + key + '">-</button>';
                             out += cart[key];
                             out += '<button class ="plus" data-atr="' + key + '">+</button>';
-                            out += '<div class="item_total_name">' + cart[key] * data.block[i].members[key1].cost + ' BYN</div>';
+                            out += '<div class="item_total">Стоимость:' + data.block[i].members[key1].cost + ' BYN</div>';
+                            out += '<div class="item_total">Общая стоимость:' + cart[key] * data.block[i].members[key1].cost + ' BYN</div>';
                             out += '</div>';
                         }
                     }
                 }
-
             }
-
-            out += totalPrice;
 
             $('#my-cart').html(out);
             calculateNumberOfItems();
+            calculateTotalPrice();
             $('.plus').on('click', plusItem);
             $('.minus').on('click', minusItem);
             $('.delete').on('click', deleteeItem);
@@ -57,10 +56,29 @@ $.getJSON('mig.json', function(data) {
         for (var id in cart) {
             item_counter += cart[id];
         }
-        out1 += '<p><a class="cart_name" href="cart.html">Корзина</a></p>' + 'Товаров в корзине: ';
-        out1 += item_counter + '</div>';
+        out1 += '<p class="cart_name">Корзина</p>' + 'Товаров в корзине: ';
+        out1 += item_counter;
+        out1 += '<div id="totalPrice"></div>';
         $('#total').html(out1);
     }
+
+    function calculateTotalPrice() {
+        var out2 = "";
+        out2 += '<dic class="totalPrice">Общая сумма:  ';
+        var total = 0;
+        for (var key in cart) {
+            for (var i in data.block) {
+                for (key1 in data.block[i].members) {
+                    if (key == data.block[i].members[key1]['id']) {
+                        total += cart[key] * data.block[i].members[key1].cost;
+                    }
+                }
+            }
+        }
+        out2 += total + '</div>';
+        $('#totalPrice').html(out2);
+    }
+
 
     function minusItem() {
         var articul = $(this).attr('data-atr');

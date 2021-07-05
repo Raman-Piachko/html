@@ -28,17 +28,14 @@ var removeValidation = function() {
 var checkFieldsPresence = function() {
     for (var i = 0; i < fields.length; i++) {
         if (!fields[i].value) {
-            console.log('field is blank', fields[i]);
             var error = generateError('Поле обязательно для заполнения');
             form[i].parentElement.insertBefore(error, fields[i]);
-
         } else { count--; }
         if (count == 0) {
             window.location.href = "send.html";
         }
     }
 };
-
 
 
 form.addEventListener('submit', function(event) {

@@ -2,7 +2,7 @@ body,
 html {
     margin: 0px;
     padding: 0px;
-    height: 100%;
+    height: 100vh;
     min-width: 650px;
 }
 
@@ -41,23 +41,24 @@ nav {
     flex-direction: row;
     font-size: auto;
     color: white;
-    height: 100vh;
+    height: 100%;
 }
 
 .main_wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
     margin: 0 auto;
     background-image: url(images/1-1.png);
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .content {
     vertical-align: middle;
     width: 75%;
+    height: 100%;
     float: right;
     text-align: center;
     color: white;
@@ -319,7 +320,8 @@ th {
     height: 75px;
 }
 
-.empty_cart {
+.empty_cart,
+.item_total {
     color: rgb(252, 252, 252);
     text-shadow: 5px 5px 10px rgb(45, 209, 250);
     text-align: center;
