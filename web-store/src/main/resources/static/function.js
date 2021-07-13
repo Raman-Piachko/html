@@ -1,11 +1,12 @@
 var cart = {};
 
 $('document').ready(function() {
+if (window.location.href.indexOf("catalog") > -1) {
     loadMIG();
     chekCart();
     showMiniCart();
+    }
 });
-
 $(function() {
     $("#header").load("header.html");
     $("#footer").load("footer.html");
