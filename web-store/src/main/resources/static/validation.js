@@ -1,10 +1,4 @@
 var form = document.querySelector('.formWithValidation');
-var validateBtn = form.querySelector('.validateBtn');
-var from = form.querySelector('.from');
-var email = form.querySelector('.email');
-var phone = form.querySelector('.phone');
-var where = form.querySelector('.where');
-var message = form.querySelector('.message');
 var fields = form.querySelectorAll('.field');
 var count = fields.length;
 

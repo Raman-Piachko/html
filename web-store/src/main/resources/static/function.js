@@ -6,6 +6,8 @@ if (window.location.href.indexOf("catalog") > -1) {
     showMiniCart();
     }
 });
+
+
 $(function() {
     $("#header").load("header.html");
     $("#footer").load("footer.html");
@@ -39,12 +41,12 @@ function loadMIG() {
 }
 
 function addToCart() {
-    var articul = $(this).attr('data-art');
-    var cart = JSON.parse(localStorage.getItem('cart')) || {};
-    if (cart[articul] != undefined) {
-        cart[articul]++;
+    var article = $(this).attr('data-art');
+    var cart = JSON.parse(localStorage.getItem('cart'))||{};
+    if (cart[article] != undefined) {
+        cart[article]++;
     } else {
-        cart[articul] = 1;
+        cart[article] = 1;
     }
     localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -60,7 +62,7 @@ function chekCart() {
 function showMiniCart() {
     $.getJSON('mig.json', function(data) {
         var out = '<div class="mini-cart"><p><a class="cart_name" href="cart.html">Корзина</a></p>' + 'Товаров в корзине: ';
-        var cart = JSON.parse(localStorage.getItem('cart')) || {};
+        var cart = JSON.parse(localStorage.getItem('cart'))||{};
         var item_counter = Object.values(cart).reduce((a, b) => a + b, 0);
         out += item_counter + '</div>';
 

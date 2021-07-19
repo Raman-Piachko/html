@@ -10,6 +10,7 @@ function showCart() {
 
 function showCartData(data) {
     var out = '';
+    var cart = JSON.parse(localStorage.getItem('cart'))||{};
     if ($.isEmptyObject(cart)) {
         out = '<h1 class="empty_cart"> На данный момент товаров в вашей корзине нет</h1>';
         $('#my-cart').html(out);
@@ -37,22 +38,24 @@ function showCartData(data) {
 
         $('#my-cart').html(out);
         calculateNumberOfItems();
-        calculateTotalPrice();
+        calculateTotalPrice(data);
         $('.plus').on('click', plusItem);
         $('.minus').on('click', minusItem);
-        $('.delete').on('click', deleteeItem);
+        $('.delete').on('click', deleteItem);
     }
 }
 
 
 function plusItem() {
-    var articul = $(this).attr('data-atr');
-    cart[articul]++;
-    saveToLocalStorage();
+    var article = $(this).attr('data-atr');
+    var cart = JSON.parse(localStorage.getItem('cart'))||{};
+    cart[article]++;
+    localStorage.setItem('cart', JSON.stringify(cart));
     showCart();
 }
 
 function calculateNumberOfItems() {
+        var cart=JSON.parse(localStorage.getItem('cart'))||{};
         var out1 = "";
         out1 += '<dic class="total">';
         var item_counter = Object.values(cart).reduce((a, b) => a + b, 0);
@@ -62,7 +65,8 @@ function calculateNumberOfItems() {
         $('#total').html(out1);
 }
 
-function calculateTotalPrice() {
+function calculateTotalPrice(data) {
+    var cart=JSON.parse(localStorage.getItem('cart'))||{};
     var out2 = "";
     out2 += '<dic class="totalPrice">Общая сумма:  ';
     var total = 0;
@@ -81,19 +85,20 @@ function calculateTotalPrice() {
 
 
 function minusItem() {
-    var articul = $(this).attr('data-atr');
-
-    if (cart[articul] > 1) {
-            cart[articul]--;
-    } else { delete cart[articul]; }
-    saveToLocalStorage();
+    var article = $(this).attr('data-atr');
+    var cart=JSON.parse(localStorage.getItem('cart'))||{};
+    if (cart[article] > 1) {
+            cart[article]--;
+    } else { delete cart[article]; }
+    localStorage.setItem('cart', JSON.stringify(cart));
     showCart();
 }
 
-function deleteeItem() {
-    var articul = $(this).attr('data-atr');
-    delete cart[articul];
-    saveToLocalStorage();
+function deleteItem() {
+    var article = $(this).attr('data-atr');
+    var cart=JSON.parse(localStorage.getItem('cart'))||{};
+    delete cart[article];
+    localStorage.setItem('cart', JSON.stringify(cart));
     showCart();
 }
 
@@ -101,8 +106,4 @@ function chekCart() {
     if (localStorage.getItem('cart') != null) {
         cart = JSON.parse(localStorage.getItem('cart'));
     }
-}
-
-function saveToLocalStorage() {
-    localStorage.setItem('cart', JSON.stringify(cart));
 }
