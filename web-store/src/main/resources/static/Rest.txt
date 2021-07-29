@@ -1,0 +1,189 @@
+Models
+
+User {
+  "id": String,
+  "username": String,
+  "firstName": String,
+  "lastName": String,
+  "email": String,
+  "password": String,
+  "phone": NUMBER,
+}
+
+Item { 
+  "id": String,
+  "title": String,
+  "cost": Integer,
+  "weight": Double,
+  "manufacturer": String
+}
+
+
+
+requset - create a new user
+POST api/v1/users HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "id": "1",
+  "username": "Ivan1",
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "email": "ivanov@g.com",
+  "password": "123",
+  "phone": 543,
+}
+
+response:
+{
+  "code": 200,
+  "message": "ok"
+}
+
+requset - create a second user
+POST api/v1/users HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "id": "2",
+  "username": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 345,
+}
+
+response:
+{
+  "code": 200,
+  "message": "ok"
+}
+
+request - get all users
+GET api/v1/users HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+response:
+{"code": 200,
+"message": "OK",
+"body":
+ [
+  {
+  "id": "1",
+  "username": "Ivan1",
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "email": "ivanov@g.com",
+  "password": "123",
+  "phone": 543,
+  },{
+  "id": "2",
+  "username": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 345,
+  }
+ ]
+}
+
+request - get user by Id
+GET api/v1/users/2 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+response:
+{"code": 200,
+"message": "OK",
+"body":
+ [
+  {
+  "id": "2",
+  "username": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 345,
+  }
+  ]
+}
+
+request - get user by bad Id
+GET api/v1/users/3 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+response:
+{
+  "code": 404,
+  "message": "Not found"
+}
+
+request - update phone for user where user id=2
+
+PATCH api/v1/users/2 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "phone":"555"
+}
+
+response:
+{
+  "code": 204,
+  "message": "No content"
+}
+
+
+request - get user by Id
+GET api/v1/users/2 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+response:
+{"code": 200,
+"message": "OK",
+"body":
+ [
+  {
+  "id": "2",
+  "username": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 555,
+  }
+ ]
+}
+
+request - delete user by user id=1 and this process is very long
+DELETE api/v1/users/1 HTTP/1.1
+
+response:
+{
+  "code": 202,
+  "message": "Accepted"
+}
+
+
+requset - update welding helmet "Mega-350" (id=3wh42) item
+PUT api/v1/accessories/protections/3wh42 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-type: application/json
+{ "id": "3wh42",
+  "title": "Mega350",
+  "cost": 100,
+  "weight": 1.5,
+  "manufacturer": "PRC"
+}
+
+response:
+{
+  "code": 204,
+  "message": "No Content"
+}
