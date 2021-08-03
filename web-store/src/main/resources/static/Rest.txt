@@ -329,8 +329,8 @@ Response:
 Status: 500 Internal Server Error
 Body:
 
-request - bad method (unsupported for server)
-CHANGE api/v1/accessories/protections/3wh42 HTTP/1.1
+request - update cost in helmet id, but something went wrong at server
+PATCH api/v1/accessories/protections/3wh42 HTTP/1.1
 Host: https://weldingstoreexample.com
 {
   "cost": 165
@@ -350,37 +350,23 @@ Status: 524 A timeout occurred
 Body:
 
 
-requset - create a new order
-POST api/v1/orders HTTP/1.1
+requset - create a new order in user with {id}
+POST  api/v1/users/{id}/orders HTTP/1.1
 Host: https://weldingstoreexample.com
 Content-Type:  application/json
 {
-              "id": 789,
-              "item": "Mega350",
-              "qty": 1
-            }
-
-Response:
-Status: 200 OK
-Body:
-
-
-request - get order by Id
-GET api/v1/orders/789 HTTP/1.1
-Host: https://weldingstoreexample.com
-Content-Type:  application/json
-
-Response:
-Status: 200 OK
-Body:
-{
-    "id": 789,
-    "item": "Mega350",
-    "qty": 1
+  "id": 789,
+  "item": "Mega350",
+  "qty": 1
 }
 
-request - get order by Id
-GET api/v1/orders/789 HTTP/1.1
+Response:
+Status: 200 OK
+Body:
+
+
+request - get order in user by Id
+GET api/v1/users/{id}/orders/789 HTTP/1.1
 Host: https://weldingstoreexample.com
 Content-Type:  application/json
 
@@ -395,7 +381,7 @@ Body:
 
 
 request - delete order by id=789 and this process is very long
-DELETE api/v1/orders/789 HTTP/1.1
+DELETE api/v1/users/{id}/orders/789 HTTP/1.1
 
 Response:
 Status: 202 Accepted
