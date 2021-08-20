@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Обратная связь</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+    </script>
+    <script src="function.js">
+    </script>
+
+</head>
+
+<body>
+    <div class="form_wrapper">
+        <div id="header"></div>
+        <div class="container">
+            <div class="form_content">
+                <div class="page_name_form">Обратная связь</div>
+                <form class="formWithValidation">
+                    <div>
+                        <div>
+                            <label>Ваше Имя:<span>*</span>:</label>
+                        </div>
+                        <div>
+                            <input type='text' class='from field' />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Ваш E-mail:</label>
+                        </div>
+                        <div>
+                            <input type='email' class='email field' />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Ваш телефон <span>*</span>:</label>
+                        </div>
+                        <div>
+                            <input type='tel' class='phone field' value="" placeholder="375XXXXXXXXX" minlength="12" pattern="[0-9]{12}" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Тип запрашиваемой информации<span>*</span>:</label>
+                        </div>
+                        <div>
+                            <select class='where field'>
+                            <option></option>
+                            <option value='Сontacts'>Консультация по продукции</option>
+                            <option value='Price'>Вопросы рассрочки, доставки</option>
+                            <option value='Problems'>Проблемы или ошибки работы сайта</option>
+                            <option value='Problems'>Гаранитийное обслуживание и сервис</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Сообщение <span>*</span>:</label>
+                        </div>
+                        <div>
+                            <textarea class='message field'></textarea>
+                        </div>
+                    </div>
+                    <input type='submit' class='validateBtn' value='Отправить' />
+                </form>
+                <script src="validation.js"></script>
+            </div>
+
+        </div>
+        <div class="back_button">
+            <a href="javascript: GoBack();">Назад</a>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>

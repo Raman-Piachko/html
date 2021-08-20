@@ -1,0 +1,388 @@
+Models
+
+User {
+  "id": String,
+  "userName": String,
+  "firstName": String,
+  "lastName": String,
+  "email": String,
+  "password": String,
+  "phone": NUMBER,
+  "orders": []
+}
+
+Order {
+  "id": String,
+  "item": String,
+  "qty": Integer,
+}
+
+Item {
+  "id": String,
+  "title": String,
+  "cost": Integer,
+  "weight": Double,
+  "manufacturer": String
+}
+
+
+
+requset - create a new user
+POST api/v1/users HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "userName": "Ivan1",
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "email": "ivanov@g.com",
+  "password": "123",
+  "phone": 543,
+  "orders":[]
+}
+
+Response:
+Status: 200 OK
+Body:
+
+
+requset - create a second user
+POST api/v1/users HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "userName": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 345,
+  "orders":[]
+}
+
+Response:
+Status: 200 OK
+Body:
+
+
+request - get all users and sort in descending order by username
+GET api/v1/users?sort_by=userName&order=desc HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 200 OK
+Body:
+ [
+  {
+  "id": "2",
+  "userName": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 345,
+  "orders":
+          {
+            "id": 789,
+            "item": "Mega350",
+            "qty": 1
+          }
+  },{
+      "id": "1",
+      "userName": "Ivan",
+      "firstName": "Ivan",
+      "lastName": "Ivanov",
+      "email": "ivanov@g.com",
+      "password": "123",
+      "phone": 543,
+      "orders": [
+            {
+              "id": 123,
+              "item": "Mega350",
+              "qty": 1
+            }, {
+              "id": 456,
+              "item": "Mega800",
+              "qty": 2
+            }
+          ]
+      }
+ ]
+
+
+request - get user by Id
+GET api/v1/users/2 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 200 OK
+Body:
+  {
+  "id": "2",
+  "userName": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 345,
+  "orders":
+            {
+              "id": 789,
+              "item": "Mega350",
+              "qty": 1
+            }
+  }
+
+
+request - get order by id from a user with id
+GET api/v1/users/1/orders/456 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 200 OK
+Body:
+{
+  "id": 789,
+  "item": "Mega350",
+  "qty": 1
+}
+
+
+request - get user by bad Id
+GET api/v1/users/3 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 404 Not found
+Body:
+
+
+request - update phone for user where user id=2
+PATCH api/v1/users/2 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "phone":"555"
+}
+
+Response:
+Status: 204 No content
+Body:
+
+
+request - get user by Id
+GET api/v1/users/2 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 200 OK
+Body:
+  {
+  "id": "2",
+  "username": "Sidor",
+  "firstName": "Sidor",
+  "lastName": "Sidorov",
+  "email": "sidorov@g.com",
+  "password": "321",
+  "phone": 555,
+  "orders": []
+  }
+
+
+request - delete user by user id=1 and this process is very long
+DELETE api/v1/users/1 HTTP/1.1
+
+Response:
+Status: 202 Accepted
+Body:
+
+
+requset - create a new item helmet Mega350
+POST api/v1/accessories/protections HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+    "title": "Mega350",
+    "cost": 100,
+    "weight": 1.5,
+    "manufacturer": "PRC"
+}
+
+Response:
+Status: 200 OK
+Body:
+
+
+requset - create a new item helmet Mega400
+POST api/v1/accessories/protections HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+    "title": "Mega400",
+    "cost": 120,
+    "weight": 1.6,
+    "manufacturer": "PRC"
+}
+
+Response:
+Status: 200 OK
+Body:
+
+requset - create a new item helmet Mega800
+POST api/v1/accessories/protections HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+    "title": "Mega800",
+    "cost": 160,
+    "weight": 1.7,
+    "manufacturer": "PRC"
+}
+
+Response:
+Status: 200 OK
+Body:
+
+
+request - get helmet by Id
+GET api/v1/accessories/protections/3wh42 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 200 OK
+Body:
+{
+     "id": "3wh42",
+     "title": "Mega350",
+     "cost": 100,
+     "weight": 1.5,
+     "manufacturer": "PRC"
+}
+
+
+request - get all helmets filter by cost over 110 and pagination and display first
+GET api/v1/accessories/protections?filter=cost gt 110&limit=2&page=1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 200 OK
+Body:
+[
+    {
+     "id": "3wh43"
+     "title": "Mega400",
+     "cost": 120,
+     "weight": 1.6,
+     "manufacturer": "PRC"
+     },
+     {
+     "id": "3wh44"
+     "title": "Mega800",
+     "cost": 160,
+     "weight": 1.7,
+     "manufacturer": "PRC"
+     }
+]
+
+
+request - update cost for helmet where helmet id=3wh44
+PATCH api/v1/accessories/protections/3wh44 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "cost": 165
+}
+
+Response:
+Status: 204 No content
+Body:
+
+
+requset - update welding helmet "Mega-350" (id=3wh42) item
+PUT api/v1/accessories/protections/3wh42 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-type: application/json
+{
+  "title": "Mega350 NEW",
+  "cost": 105,
+  "weight": 1.55,
+  "manufacturer": "Belarus"
+}
+
+Response:
+Status: 204 No Content
+Body:
+
+
+request - delete helmet by helmet id=3wh42 but we have Internal Server Error
+DELETE api/v1/accessories/protections/3wh42 HTTP/1.1
+Host: https://weldingstoreexample.com
+
+Response:
+Status: 500 Internal Server Error
+Body:
+
+request - update cost in helmet id, but something went wrong at server
+PATCH api/v1/accessories/protections/3wh42 HTTP/1.1
+Host: https://weldingstoreexample.com
+{
+  "cost": 165
+}
+
+Response:
+Status: 500 Internal Server Error
+Body:
+
+request - get helmet by Id but the time to send a response has expired
+GET api/v1/accessories/protections/3wh42 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 524 A timeout occurred
+Body:
+
+
+requset - create a new order in user with {id}
+POST  api/v1/users/{id}/orders HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+{
+  "id": 789,
+  "item": "Mega350",
+  "qty": 1
+}
+
+Response:
+Status: 200 OK
+Body:
+
+
+request - get order in user by Id
+GET api/v1/users/{id}/orders/789 HTTP/1.1
+Host: https://weldingstoreexample.com
+Content-Type:  application/json
+
+Response:
+Status: 200 OK
+Body:
+{
+    "id": 789,
+    "item": "Mega350",
+    "qty": 1
+}
+
+
+request - delete order by id=789 and this process is very long
+DELETE api/v1/users/{id}/orders/789 HTTP/1.1
+
+Response:
+Status: 202 Accepted
+Body:

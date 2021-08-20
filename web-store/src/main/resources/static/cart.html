@@ -1,33 +1,28 @@
-<!DOCTYPE html>
-
 <head>
     <meta charset="utf-8">
-    <title>Каталог продукции</title>
+    <title>Корзина товаров</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
     <script src="function.js">
     </script>
+    <script src="cart.js">
+    </script>
 
 </head>
 
 <body>
-    <div class="catalog_wrapper">
+    <div class="cart_wrapper">
         <div id="header"></div>
         <div class="container">
-            <div class="page_name_catalog">Каталог продукции</div>
-            <div id="mini-cart"></div>
-            <div id="navi"></div>
-            <div class="catalog_content">
+            <div id="total"></div>
+            <div class="page_name_cart">Товары в вашей корзине</div>
+            <div id="navi">
 
-                <div class="item_list">
-
-                    <div id="mig">
-                    </div>
-
-                </div>
             </div>
+
+            <div id="my-cart"></div>
         </div>
         <div class="back_button">
             <a href="javascript: GoBack();">Назад</a>

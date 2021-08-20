@@ -10,47 +10,46 @@
     </script>
     <script src="function.js">
     </script>
-
-    <script>
-        let GoBack = function() {
-            window.history.back();
-        };
-    </script>
 </head>
 
 <body>
     <div class="contacts_wrapper">
         <div id="header"></div>
-        <div id="nav"></div>
-        <div class="contacts_content">
-            <div class="page_name_contacts">Наши контакты</div>
-            <table class="table">
-                <tr>
-                    <th></th>
-                    <th>Офис</th>
-                    <th>Склад</th>
-                </tr>
-                <tr>
-                    <th>Адрес</th>
-                    <td>г.Нбург, ул.Прямая, стр.8, каб.100</td>
-                    <td>г.Нбург, ул.Косая, стр.1</td>
-                </tr>
-                <tr>
-                    <th>Телефоны</th>
-                    <td>+375291234567
-                        <p>
-                            11-22-33
-                        </p>
-                    </td>
-                    <td>+375291234567
-                        <p>
-                            11-22-33
-                        </p>
-                    </td>
-                </tr>
-            </table>
+        <div class="container">
+            <div id="navi"></div>
+            <div class="contacts_content">
+                <div class="page_name_contacts">Наши контакты</div>
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>Офис</th>
+                        <th>Склад</th>
+                    </tr>
+                    <tr>
+                        <th>Адрес</th>
+                        <td>г.Нбург, ул.Прямая, стр.8, каб.100</td>
+                        <td>г.Нбург, ул.Косая, стр.1</td>
+                    </tr>
+                    <tr>
+                        <th>Телефоны</th>
+                        <td>+375291234567
+                            <p>
+                                11-22-33
+                            </p>
+                        </td>
+                        <td>+375291234567
+                            <p>
+                                11-22-33
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
-        <a class="back_button" href="javascript:history.back();">Назад</a>
+        <div class="back_button">
+            <a href="javascript: GoBack();">Назад</a>
+        </div>
         <div id="footer"></div>
     </div>
 </body>
